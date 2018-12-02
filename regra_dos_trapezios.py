@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 import numpy as np
 from sympy import *
 from math import *
@@ -9,26 +12,21 @@ def regraDosTrapezios(fx,a,b,x):
 
 x = symbols('x')
 
-fx = sympify(str(input("Digite a função f(x): ")))
-a = float(input("Digite o começo do intervalo de integração: "))
-b = float(input("Digite o fim do intervalo de integração: "))
-t = float(input("Digite o modo de integração: (0 - sem repetição, 1 - com repetição): "))
+fx = sympify(str(input("\n\n   Digite a função f(x): ")))
+a = float(input("   Digite o começo do intervalo de integração: "))
+b = float(input("   Digite o fim do intervalo de integração: "))
+t = float(input("   Digite o modo de integração: (0 - sem repetição, 1 - com repetição): "))
 
 if(t == 0):
 
-    Ir = integrate(fx,(x,a,b))
     Ia = regraDosTrapezios(fx,a,b,x)
-    print("Integral aproximada: ",Ia)
-    print("Integral real: ",Ir)
-    
-    print("Erro: "+str((abs(Ir-Ia)/abs(Ir))*100)+"%")
-
+    print("   Integral aproximada: "+str(Ia)+"\n\n")
 
 elif(t == 1):
 
-   h = float(input("Digite o tamanho h dos intervalos das repetições: "))
+   m = int(input("   Digite a quantidade m de divisões: "))
 
-   m = floor(abs(b-a)/h)
+   h = abs(b-a)/m
 
    Et = (-h**3/12)*diff(diff(fx,x),x).subs(x,a)
 
@@ -45,8 +43,7 @@ elif(t == 1):
                 Et += -(h**3/12)*diff(diff(fx,x),x).subs(x,a+h)
                 Ia += regraDosTrapezios(fx,a,(a+h),x)
                 a += h
-        print("Integral aproximada: ",Ia)
-        print("Somatório do erro: "+str(Et))
+        print("   Integral aproximada: "+str(Ia)+"\n\n")
    else:
         Ia = 0
         xk = a
@@ -55,6 +52,5 @@ elif(t == 1):
             Ia += regraDosTrapezios(fx,a,(a+h),x)
             a += h
 
-        print("Integral aproximada: ",Ia)
-        print("Somatório do erro: "+str(abs(Et)))
+        print("   Integral aproximada: "+str(Ia)+"\n\n")
 

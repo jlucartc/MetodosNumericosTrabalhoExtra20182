@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 import numpy as np
 from sympy import *
 from math import *
@@ -47,9 +50,9 @@ def pivotacaoParcial(A):
 start = None
 end = None    
 
-x = np.matrix(eval(input("Digite o vetor de pontos x0;x1;x1;{...};xn : ")))
+x = np.matrix(eval(input("\n\n   Digite o vetor de pontos x0;x1;x1;{...};xn : ")))
 x = x.astype(float)
-y = np.matrix(eval(input("Digite o vetor de pontos f(x0);f(x1);{...};f(xn) :")))
+y = np.matrix(eval(input("   Digite o vetor de pontos f(x0);f(x1);{...};f(xn) :")))
 x = x.astype(float)
 n = x.shape[0] # quantidade de linhas de x = quantidade de pontos
 
@@ -90,10 +93,10 @@ for j in range(0,r.shape[1]):
 x = symbols('x')
 st = sympify(str(st))
 
-x0 = float(input("Digite um valor de x para ser testado no polinômio da interpolação: "))
+x0 = float(input("   Digite um valor de x para ser testado no polinômio da interpolação: "))
 
-print("y(x) = ",str(st))
-print("y("+str(x0)+"): ",st.subs(x,x0))
-print("Tempo de execucao total: %e segundos" % (end - start))
+print("   y(x) = "+str(st))
+print("   y("+str(x0)+"): "+str(st.subs(x,x0)))
+print("   Tempo de execucao total: %e segundos\n\n" % (end - start))
         
     

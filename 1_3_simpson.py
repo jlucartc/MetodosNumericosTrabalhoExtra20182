@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import numpy as np
 from sympy import *
 from math import *
@@ -9,21 +11,21 @@ def regra_1_3_Simpson(fx,a,h,x):
 
 x = symbols('x')
 
-fx = sympify(str(input("Digite a função f(x): ")))
-a = float(input("Digite o começo do intervalo de integração: "))
-b = float(input("Digite o fim do intervalo de integração: "))
-t = float(input("Digite o modo de integração: (0 - sem repetição, 1 - com repetição): "))
+fx = sympify(str(input("\n\n   Digite a função f(x): ")))
+a = float(input("   Digite o começo do intervalo de integração: "))
+b = float(input("   Digite o fim do intervalo de integração: "))
+t = float(input("   Digite o modo de integração: (0 - sem repetição, 1 - com repetição): "))
 
 if(t == 0):
 
     Ir = integrate(fx,(x,a,b))
     Ia = regra_1_3_Simpson(fx,a,abs(b-a)/2,x)
-    print("Integral aproximada 3: ",Ia)
+    print("   Integral aproximada: "+str(Ia)+"\n\n")
 
 
 elif(t == 1):
 
-   m = int(input("Digite a quantidade m de intervalos: "))
+   m = int(input("   Digite a quantidade m de intervalos: "))
 
    h = float(abs(b-a)/m)
 
@@ -38,9 +40,8 @@ elif(t == 1):
             Ia += regra_1_3_Simpson(fx,a,h,x)
             a += 2*h
 
-        print("Integral aproximada 2: ",Ia)
-        print("Erro estimado: "+str(abs(Es)))
+        print("   Integral aproximada: "+str(Ia)+"\n\n")
    else:
-        print("m não é múltiplo de 2")
+        print("   Erro: m não é múltiplo de 2\n\n")
        
 

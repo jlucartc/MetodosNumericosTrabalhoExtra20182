@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 import numpy as np
 from sympy import *
 from math import *
@@ -62,8 +65,8 @@ end = None
 
 x = symbols('x')
 
-X = Matrix(eval(input("Digite o vetor x: ")))
-Y = Matrix(eval(input("Digite o vetor y: ")))
+X = Matrix(eval(input("\n\n   Digite o vetor x: ")))
+Y = Matrix(eval(input("   Digite o vetor y: ")))
 
 Xp = ones(X.shape[0],X.shape[1])*x - X[:,:]
 
@@ -93,10 +96,10 @@ for i in range(1,Pn.shape[1]):
 
 Sn = sympify(Sn)
 c = 30
-y0 = float(input("Digite um valor de y para ser testado no polinômio interpolado: "))
-e = float(input("Digite a precisão do x estimado: "))
+y0 = float(input("   Digite um valor de y para ser testado no polinômio interpolado: "))
+e = float(input("   Digite a precisão do x estimado: "))
 Sn2 = Sn - y0
-print("Pn(x) = ",Sn)
-print("f(xk) = ",y0)
-print("xk = ",newtonRaphson(Sn2,diff(Sn2,x),xProximo(y0,Y),e,c,x)[0])
-print("Tempo de execucao total: %e segundos" % (end - start))
+print("   Pn(x) = "+str(Sn))
+print("   f(xk) = "+str(y0))
+print("   xk = "+str(newtonRaphson(Sn2,diff(Sn2,x),xProximo(y0,Y),e,c,x)[0]))
+print("   Tempo de execucao total: %e segundos\n\n" % (end - start))
