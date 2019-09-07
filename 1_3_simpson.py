@@ -22,7 +22,6 @@ if(t == 0):
     Ia = regra_1_3_Simpson(fx,a,abs(b-a)/2,x)
     print("   Integral aproximada: "+str(Ia)+"\n\n")
 
-
 elif(t == 1):
 
    m = int(input("   Digite a quantidade m de intervalos: "))
